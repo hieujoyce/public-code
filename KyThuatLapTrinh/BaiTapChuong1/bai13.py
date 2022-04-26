@@ -3,7 +3,7 @@ def checkHopLe(d, m, y):
         return False
     if(m < 1 or m > 12):
         return False
-    if(m == 4 or m == 6 or m == 9 or 11):
+    if(m == 4 or m == 6 or m == 9 or m == 11):
         dayOfMonth = 30
     elif(m == 2):
         dayOfMonth = 28 + int( ( y % 4 == 0 and y % 100 != 0 ) or y % 400 == 0)
@@ -17,10 +17,10 @@ def main():
     d, m, y = map(lambda x: int(x), input("Nhap ngay, thang va nam: ").split())
     if(checkHopLe(d, m, y) == True):
         print("Hop le")
-        a = (14 - m) / 12
+        a = (14 - m) // 12
         y = y - a
         m = m + 12 * a -2
-        dayOfWeek = int(d + y + y/4 - y/100 + y/400 + (31*m)/12) % 7
+        dayOfWeek = int(d + y + y//4 - y//100 + y//400 + (31*m)//12) % 7
         if(dayOfWeek == 0):
             print("Chu nhat")
         else:

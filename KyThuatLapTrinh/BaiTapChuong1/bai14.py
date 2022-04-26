@@ -1,5 +1,5 @@
 def tomorrow(d, m, y):
-    if(m == 4 or m == 6 or m == 9 or 11):
+    if(m == 4 or m == 6 or m == 9 or m == 11):
         dayOfMonth = 30
     elif(m == 2):
         dayOfMonth = 28 + int( ( y % 4 == 0 and y % 100 != 0 ) or y % 400 == 0)
