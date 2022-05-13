@@ -7,7 +7,7 @@ def main():
         b = tmp
     if(a > c):
         tmp = a
-        c = c
+        a = c
         c = tmp
     if(b > c):
         tmp = b
