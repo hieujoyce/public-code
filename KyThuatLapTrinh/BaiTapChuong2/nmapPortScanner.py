@@ -6,7 +6,7 @@ portScanner = nmap.PortScanner()
 
 host_scan = input('Host scan: ')
 
-portlist="21,22,23,25,80"	
+portlist="21,22,23,25,80"
 portScanner.scan(hosts=host_scan, arguments='-n -p'+portlist)
 
 print(portScanner.command_line())

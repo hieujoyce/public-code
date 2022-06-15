@@ -4,7 +4,7 @@ import shodan
 import re
 import os
 
-servers =[]
+servers = []
 shodanKeyString = "ptNfQMuGKFphM8Y7D8unwhhTZJCSlLJ8"
 shodanApi = shodan.Shodan(shodanKeyString)
 
