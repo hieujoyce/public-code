@@ -1,9 +1,9 @@
 .model small
 .stack 100h
 .data
-    strNhap db "Hay nhap ki tu bat ki: $"
-    strKq db 13, 10, "Ki tu nhan duoc la: $"
-    kitu db ?  
+    strNhap db "Nhap vao ten cua ban: $"
+    strChao db 13, 10, "Xin chao $"
+    str db 100 dup("$")
 .code
     main proc
         mov ax, @data
@@ -13,20 +13,17 @@
         mov ah, 9
         int 21h
         
-        mov ah, 1
+        lea dx, str
+        mov ah, 10
         int 21h
-        
-        mov kitu, al
         
         mov ah, 9
-        lea dx, strKq
+        lea dx, strChao,
         int 21h
-        
-        mov dl, kitu
-        mov ah, 2
+        lea dx, str + 2
         int 21h
         
         mov ah, 4CH
-        int 21h
+        int 21h        
     main endp
 end
