@@ -2,9 +2,9 @@
 .stack 100
 .data
     str db 100 dup("$")
-    tbNhap db "Hay nhap vao ma sv: $"
-    tbKQ db 13, 10, "Ma sinh vien la: $"
-    tbMsvSpace db 13, 10, "Ket qua msv khoang cach la: $"
+    tbNhap db "Hay nhap vao ten sv: $"
+    tbKQ db 13, 10, "Ten sinh vien la: $"
+    tbTenSpace db 13, 10, "Ket qua ten sv khoang cach la: $"
 .code
     main proc
         mov ax, @data
@@ -23,7 +23,7 @@
         int 21h 
         lea dx, [str + 2]
         int 21h
-        lea dx, tbMsvSpace
+        lea dx, tbTenSpace
         int 21h
         
         mov cx, 0
