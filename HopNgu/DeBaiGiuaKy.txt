@@ -1,1 +1,14 @@
-Coming Soon
+1. Nhập vào mã sinh viên và hiển thị đúng MSV
+Màn hình hiển thị: Hãy nhập vào mã sv: (Nhập AT160419)
+Mã Sinh Viên là: AT160419
+
+2.
+	2.1 (Đề 1) Đảo ngược mã sinh viên: VD 914061AT
+	2.2 Đổi 3 số cuối MSV ra hệ cơ số 2, 16 bit
+	2.3 Đổi 3 số cuối MSV ra hệ cơ số 16, 16 bit
+	2.4 Đổi chư AT thành chữ in thường at
+	2.5 Nhập họ tên và đảo ngược họ tên
+	2.6 Thêm dấu cách vào giữa các chữ cái MSV
+	2.7 Đổi các chữ cái sang in Hoa
+	2.8 Đổi các chữ cái in thường
+
