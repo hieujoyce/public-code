@@ -97,7 +97,7 @@
         mov dl, "E"
         jmp print 
         print_f:
-        mov dl, "A"
+        mov dl, "F"
         jmp print
         
         print:
