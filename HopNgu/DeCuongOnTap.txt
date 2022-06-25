@@ -1,0 +1,56 @@
+	ĐỀ CƯƠNG ÔN TẬP LẬP TRÌNH HỢP NGỮ
+
+Lập trình 30 phút trên máy tính 1 câu gồm 2 ý a và b. Ý a là chung về nhập xuất ký tự cho các bài (2 điểm), câu b là 3 điểm thuộc các dạng bài tập khác nhau.
+I.	Xử lý về số học
+1.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình.
+	b.Tính n! trong đó n nhập từ bàn phím.
+2.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Tính tổng các phần tử trong chuỗi số.
+3.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đếm số lượng số nguyên tố trong chuỗi số.
+4.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đếm số lượng số chia hết cho 5 (hay một số bất kỳ) trong chuỗi số
+5.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đếm số lượng phần tử âm dương trong chuỗi số
+6.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Nhập vào một số hệ thập phân hiển thị các giá trị đổi ra cơ số 16 (hexa) và nhị phân (16 bit)
+II.	Xử lý chuỗi ký tự
+7.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đổi tất cả các ký tự in thường thành in HOA trong chuỗi ký tự nhập vào từ bàn phím
+8.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đổi tất cả các ký tự in HOA thành in thường trong chuỗi ký tự nhập vào từ bàn phím
+9.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Đảo ngược chuỗi ký tự nhập vào từ bàn phím (dùng ngăn xếp)
+10.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.So sánh 2 chuỗi ký tự nhập vào từ bàn phím
+11.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Nhập vào một chuỗi, tìm ký tự trong chuỗi (ví dụ tìm ký tự “A”)
+12.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào mã sinh viên và hiển thị đúng đúng tên của mình. 
+	b.Nhập vào một chuỗi, đếm số ký tự trong chuỗi
+III.	Xử lý tệp tin
+13.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào họ tên sinh viên và hiển thị đúng MSV của mình. 
+	b.Tạo một tệp tin mới, tên tập tin nhập từ bàn phím, ghi nội dung vào tệp tin nhập từ bàn phím.
+14.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào họ tên sinh viên và hiển thị đúng MSV của mình. 
+	b.Đọc nội dung một tệp tin (.txt) đã tạo sẵn trong máy tính.
+15.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào họ tên sinh viên và hiển thị đúng MSV của mình. 
+	b.Xóa một tệp tin (.txt) đã tạo sẵn trong máy tính.
+16.	Viết chương trình hợp ngữ với chức năng sau:
+	a.Nhập vào họ tên sinh viên và hiển thị đúng MSV của mình. 
+	b.Thay đổi tên một tệp tin (.txt) đã tạo sẵn trong máy tính.
+
+
