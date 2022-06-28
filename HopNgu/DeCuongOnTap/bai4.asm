@@ -72,6 +72,16 @@
         inc si
         loop loop1
         
+        mov dx, 0
+        mov bx, 5
+        div ax 
+        cmp dx, 0
+        je tangDemv1        
+        jmp next4
+        tangDemv1:
+        inc dem
+        next4:
+        
         mov ax, dem
         call chuyenSoThanhChu
         
