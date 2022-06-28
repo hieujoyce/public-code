@@ -59,7 +59,7 @@
         next1:
         mov dx, 0
         mov bx, 5
-        div ax 
+        div bx 
         cmp dx, 0
         je tangDem        
         jmp next3
@@ -74,7 +74,7 @@
         
         mov dx, 0
         mov bx, 5
-        div ax 
+        div bx 
         cmp dx, 0
         je tangDemv1        
         jmp next4
