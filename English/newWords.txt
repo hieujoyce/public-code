@@ -157,3 +157,33 @@ Order a meal: gọi món
 91.	Merchandise /mơ chừn đai/: hàng hóa
 92.	Wave /guây/: (n) sóng biển, (v) vẫy tay
 93.	Various /ve ri ợt/: (adj) nhiều, đa dạng, khác nhau
+94.	Pillow /pía lâu/: cái gối
+95.	Sheet /sịt/: tờ giấy, cái mền, tấm vải
+96.	Sunglasses /săn gờ lát sựt/: kính râm
+97.	Be under construction: đang thi công
+98.	Walkway /guốc guây/: lối đi bộ
+99.	Crowded /cờ rao đựt/: (adj) đông đúc
+
+
+
+1.	Bicyclist /bai sơ cờ lít/: người đạp xe
+2.	Dentist /đen tịt/: nha sĩ
+3.	Polish /bo lịt/: (v) đánh bóng làm sạch
+4.	Pull /pu/: kéo  >< push /pút/: đẩy
+5.	Lean: dựa, tựa vào  across/against
+6.	Vase /va/: lọ hoa
+7.	Net /nét/: lưới
+8.	Fence /fen(cì)/: hàng rào
+9.	Straighten / sờ trết từn/: làm thẳng
+10.	Umbrella /ăm bờ re lờ/: ô
+11.	Sort / soột/: phân chia, sắp xếp
+12.	Tunnel /tăn nồ/: đường hầm
+13.	Traffic /tra phịc/: giao thông
+14.	Through /thờ ru/: xuyên qua
+15.	Camping: cắm trại
+16.	Tent /ten(tờ)/: cái lều
+17.	Enter: tiến vào, đi vào
+18.	Next to /nếch(sì) tu/: bên cạnh – be next to the table: bên cạnh cái bàn
+19.	Corner /co nờ/: góc – be in the corner of the room: trong góc phòng
+20.	Arrange / ơ rên(đờ)/: sắp xếp – be arrange around the table: được sắp xếp xung quanh cái bàn
+21.	Hang /heng/: treo – hanging on the wall: đang treo trên tường
