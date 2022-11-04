@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./output.css" />
+        <script src="./main.js" defer></script>
+    </head>
+    <body>
+        <div class="root w-full h-screen w-[800px] mx-auto pt-6">
+            <header class="flex items-center justify-between">
+                <div
+                    class="flex flex-col items-center relative after:content-[''] after:absolute after:-bottom-1 after:left-[50%] after:h-1 after:w-[70%] after:bg-black after:translate-x-[-50%]"
+                >
+                    <p class="uppercase">Bộ Giáo dục & đào tạo</p>
+                    <p class="uppercase font-semibold">
+                        Học viện kỹ thuật mật mã
+                    </p>
+                </div>
+                <div
+                    class="flex flex-col items-center relative after:content-[''] after:absolute after:-bottom-1 after:left-[50%] after:h-1 after:w-[70%] after:bg-black after:translate-x-[-50%]"
+                >
+                    <p class="uppercase font-semibold">
+                        Cộng hòa xã hội chủ nghĩa việt nam
+                    </p>
+                    <p class="font-semibold">Độc lập - Tự do - Hạnh phúc</p>
+                </div>
+            </header>
+            <main>
+                <h1 class="text-center mt-10 text-3xl font-semibold">
+                    Bảng điểm học tập
+                </h1>
+                <p class="text-center">
+                    (Theo GD công nhận TN số 2345-DHDN ngày 08/03/2011)
+                </p>
+                <div class="flex items-end justify-between p-2">
+                    <div class="flex">
+                        <div>
+                            <p>Họ và tên:</p>
+                            <p>Ngày sinh:</p>
+                            <p>Cấp đào tạo:</p>
+                            <p>Ngành học:</p>
+                        </div>
+                        <div class="font-semibold pl-2">
+                            <p class="uppercase">Nguyễn Trung Hiếu</p>
+                            <p>06/06/2001</p>
+                            <p>TCCH</p>
+                            <p>Kế Toán</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div>
+                            <p>Nơi sinh:</p>
+                            <p>Hệ đào tạo:</p>
+                            <p>Khóa học:</p>
+                        </div>
+                        <div class="font-semibold pl-2">
+                            <p>Hà Nam</p>
+                            <p>Chính quy</p>
+                            <p>2005-2007</p>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold text-center">
+                    Kết quả học tập
+                </h3>
+                <table
+                    id="table1"
+                    class="w-full mt-2 border-collapse border border-slate-500"
+                >
+                    <thead>
+                        <tr>
+                            <th colspan="6">Năm học 2005 - 2006</th>
+                        </tr>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên học phần</th>
+                            <th>Học kỳ</th>
+                            <th>Dytt</th>
+                            <th>DHP L1</th>
+                            <th>DHP</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </main>
+        </div>
+    </body>
+</html>
