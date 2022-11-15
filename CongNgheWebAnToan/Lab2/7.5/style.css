@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+img {
+  width: 100%;
+}
+
+#middle {
+  display: flex;
+}
+
+#left,
+#right {
+  padding: 5px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+#center {
+  flex: 1;
+}
+
+#left .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#left .nav button {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 0px;
+  background-image: linear-gradient(white, white, rgb(163, 163, 236));
+  color: brown;
+  font-weight: 700;
+}
+
+.img {
+  width: 100%;
+  margin-top: 5px;
+  border: 2px solid brown;
+}
+
+#bottom {
+  background-color: brown;
+  height: 240px;
+}
