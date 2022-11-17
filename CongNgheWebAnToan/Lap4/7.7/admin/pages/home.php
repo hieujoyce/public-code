@@ -1,1 +1,0 @@
-<div>Home admin</div>
