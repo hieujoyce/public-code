@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}
+
+#list li {
+  width: 300px;
+  background-color: rgb(211, 211, 211);
+  padding: 5px;
+  color: rebeccapurple;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+#list li:hover {
+  background-color: aliceblue;
+}
+
+#list li.active {
+  background-color: aqua;
+}
+
+#list li + li {
+  border-top: 1px solid white;
+}
+
+#content {
+  color: blue;
+  padding-left: 10px;
+}
