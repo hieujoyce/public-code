@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: end;
+  background-color: black;
+  padding: 10px;
+  height: 50px;
+}
+
+main {
+  display: flex;
+}
+
+.left {
+  width: 250px;
+  background-color: yellow;
+  height: calc(100vh - 50px);
+  flex-shrink: 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
