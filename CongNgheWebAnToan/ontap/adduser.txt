@@ -1,0 +1,26 @@
+<?php 
+ session_start()
+?>
+<html>
+<form method="post" action="" >
+ <input name="username" />
+ <input name="password" />
+ <button type="submit name="register">Submit</button>
+</form>
+
+<?php 
+ mysqli_connect();
+ if(isset($_POST['register']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+    $findUser = mysqli_query(select * from user where username = '$_POST["username"]');
+    if(!isset($findUser)) {
+	$result = mysqli_query(insert into user (username, password) values ('$_POST["username"]', 'password_hass($_POST["password"])'));
+    	echo "Them tai khoan thanh cong"
+    } else {
+    	echo "Tai khoan da duoc dang ki"
+    }	
+ } else {
+   echo "cac truong khong duoc de trong";
+ }
+?>
+
+</html>

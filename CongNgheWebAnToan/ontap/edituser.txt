@@ -1,0 +1,34 @@
+<?php 
+ session_start()
+?>
+<html>
+<form method="post" action="" >
+ <input name="usernameUpdate" />
+ <input name="passwordUpdate" />
+ <button type="submit name="changepw">Submit</button>
+</form>
+
+<?php 
+ if(!isset($_GET['user_id'])) {
+    redirect("/404");
+ }
+ mysqli_connect();
+ if(isset($_POST['changepw']) && !empty($_POST['usernameUpdate']) && !empty($_POST['passwordUpdate'])) {
+    $result = mysqli_query(select * from user where id = '$_GET['user_id']');
+    if(isset($result)) {
+    	$findUser = mysqli_query(select * from user where username = '$_POST["usernameUpdate"]');
+	if($findUser) {
+	   echo "Username nay da co nguoi su dung";
+	   return;
+	}
+	$result = mysqli_query(update user set username='$_POST["usernameUpdate"]', passoword='password_hass($_POST["passwordUpdate"])' where id = '$_GET["user_id"]');	
+	echo "cap nhat thong tin thanh cong";
+    } else {
+    	redirect("/404");
+    }	
+ } else {
+   echo "cac truong khong duoc de trong";
+ }
+?>
+
+</html>

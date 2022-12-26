@@ -1,0 +1,33 @@
+<?php 
+ session_start()
+?>
+<html>
+<form method="post" action="" >
+ <input name="passwordOld" />
+ <input name="passwordNew" />
+ <button type="submit name="changepw">Submit</button>
+</form>
+
+<?php 
+ if(!isset($_SESSION['user_id'])) {
+    redirect("/login");
+ }
+ mysqli_connect();
+ if(isset($_POST['changepw']) && !empty($_POST['passwordOld']) && !empty($_POST['passwordNew'])) {
+    $result = mysqli_query(select * from user where id = '$_SESSION['user_id']');
+    if(isset($result)) {
+    	if(password_verify($_POST["password"]), $result["password"])) {
+	    $result = mysqli_query(update user set passoword='password_hass($_POST["password"])' where id = '$_SESSION['user_id']');	
+	    echo "cap nhat mat khau moi thanh cong";
+	} else {
+	    echo "mat khau cu khong chinh xac";
+	}
+    } else {
+    	redirect("/login");
+    }	
+ } else {
+   echo "cac truong khong duoc de trong";
+ }
+?>
+
+</html>
