@@ -1,0 +1,63 @@
+Em chào thầy và các bạn đến với buổi bảo cáo môn kĩ thuật lập trình an toàn của nhóm 9 với đề tài là lập trình an toàn với thư viện python django. nhóm em gồm 3 thành viên em NTH, bạn BDT và bạn NVS
+Nội dung chúng em sẽ đi theo 3 phần. Phần 1 là tổng quan về an toàn ứng dụng web. phần 2 là lập trình an toàn với django, phần 3 là thực nghiệm.
+1.
+Vào phần đầu tiên thì chúng em sẽ nói qua 1 chút về khái niệm ứng dụng web
+- Ứng dụng web hay ứng dụng web là một ứng dụng trên web lưu trữ trên sever từ xa. Trình ứng dụng được phân phối qua Internet nhờ vào các giao diện trình duyệt. Nói một cách cụ thể hơn là ứng dụng chạy trên website sử dụng trình duyệt và công nghệ web để thực hiện thao tác trực tiếp qua Internet. Các web này có sự tương tác, cho phép người dùng nhận, nhập hay thực hiện thao tác dữ liệu. 
+
+cơ chế cơ bản hoạt động của ứng dụng web là Người dùng sử dụng internet tiến hành kích hoạt yêu cầu đến máy chủ web. Quá trình thực hiện thông qua User interface của ứng dụng hoặc thông qua trình duyệt web. Sau đó web server sẽ tiến hành chuyển tiếp yêu cầu này đến Ứng dụng web Server thích hợp Máy chủ thử dụng ứng dụng web bắt đầu thực hiện các thao tác nghiệp vụ được yêu cầu.Trong đó ví dụ như truy vấn cơ sở dữ liệu, xử lý các dữ liệu,…. Sau đó kiến tạo nên kết quả cho dữ liệu đã được yêu cầu. Một khi có được kết quả máy chủ ứng dụng ứng dụng web sẽ gửi đến máy chủ web. Bao gồm các thông tin yêu cầu hay dữ liệu đã được tiến hành xử lý. Cuối cùng web server sẽ phản hồi lại khách hàng cụ thể những thông tin đã được yêu cầu ban đầu.
+
+Một ứng dụng web được coi là bảo mật khi đáp ứng những điều kiện sau đây:
+•	Cho phép hoặc cấm dịch vụ truy cập ra bên ngoài hoặc ngược lại, từ bên ngoài truy cập vào bên trong.
+•	Kiểm soát và cấm địa chỉ truy cập của người dùng.
+•	Theo dõi dữ liệu giữa Intranet (mạng nội bộ) và Internet.
+•	Kiểm soát nội dung thông tin trên mạng.
+Nhưng đối với thực trạng an toàn ứng dụng web hiện nay thì Trong cuộc chạy đua số hóa, bùng nổ công nghệ thông tin đã đẩy mạnh các ứng dụng web để nâng cao khả năng quản lý, phục vụ công việc. Do mong muốn đưa các ứng dụng này vào thực tế càng nhanh càng tốt nên việc chuẩn bị đầy đủ các quy trình kiểm soát bảo mật thường xảy ra thiếu sót. Các ứng dụng web được đưa vào sử dụng quá nhanh chóng nên chưa được đầu tư kiểm tra an toàn an ninh đầy đủ, thường là không được kiểm tra. 
+Một số lỗ hỗng phổ biến hiện nay như: XSS, SQL Injection, CSRF, vv
+
+2. Tiếp theo chúng ta sẽ đến với chương 2 
+
+
+Thì Đầu tiên là lỗ hổng XSS
+-------------------------------------------------------------------
+XSS là một lỗ hổng trong các ứng dụng web cho phép thực thi các tập lệnh phía máy khách bất hợp pháp. Và từ quan điểm của kẻ tấn công, tấn công XSS là một kỹ thuật trong đó kẻ tấn công đưa các tập lệnh phía máy khách độc hại vào ứng dụng web. Khi người dùng yêu cầu trang bị ảnh hưởng, tập lệnh độc hại sẽ được thực thi. Các tác nhân độc hại sử dụng XSS cho nhiều mục đích khác nhau, bao gồm các sự cố phổ biến sau: Đánh cắp thông tin nhạy cảm, Hành vi trộm cắp danh tính, Thực thi mã từ xa.
+Thì em có demo 1 trang web đơn giản như sau giả sử một ứng dụng web lấy tên người dùng làm đầu vào và sau đó chào người dùng bằng tên của họ.
+
+Mặc dù điều này bảo vệ người dùng khỏi hầu hết đầu vào độc hại, nhưng nó không hoàn toàn chắc chắn. Về cơ bản, ứng dụng đang sử dụng đầu vào và thêm nó vào văn bản được quyết định trước. Khi ứng dụng xây dựng kết quả này, nó sẽ gửi phản hồi tới trình duyệt của người dùng nơi phản hồi được hiển thị. Nếu đầu vào là <script>alert('XSS');</script>; , phản hồi được gửi tới người dùng sẽ là: Xin chào,  <script>alert('XSS');</script>, đáng nhẽ sẽ phải hiện lên 1 thông báo XSS  Nhưng phần tiêm này sẽ không hoạt động ở Django, Django có tính năng  thoát các kí tự HTML tự động Tính năng này chuyển đổi một số ký tự HTML thành mã HTML của chúng như sau:
+Các mẫu Django lọc khỏi các ký tự cụ thể đặc biệt nguy hiểm đối với HTML. 
+# < is converted to &lt;
+# > is converted to &gt;
+# ' (single quote) is converted to &#x27;
+# " (double quote) is converted to &quot;
+
+ Mặc dù điều này bảo vệ người dùng khỏi hầu hết đầu vào độc hại, nhưng nó không hoàn toàn chắc chắn. Ví dụ: nó sẽ không bảo vệ những điều sau:
+
+Tiếp theo là lỗ hổng sql injection
+SQL injection là gì?
+Nói một cách ngắn gọn, đó là một cuộc tấn công vào ứng dụng của bạn, trong đó kẻ tấn công cố gắng thực thi các lệnh bổ sung trên cơ sở dữ liệu của bạn. Nó được gọi là SQL injection vì kẻ tấn công đưa vào các lệnh SQL thông qua đầu vào của người dùng, do đó thay đổi cách ứng dụng của bạn hoạt động. Điều này có thể dẫn đến rò rỉ thông tin, truy cập trái phép hoặc thậm chí xóa sạch tất cả dữ liệu của bạn. 
+demo này e sẽ làm 1 trang web cực kì đơn giản về chức năng đăng nhập người dùng sẽ nhập vào 2 trường username và password 
+và server sẽ vào db tìm xem có user nào thỏa mãn không. Trang chủ Django khuyến cáo chúng ta nên sử dụng Object Relational Mapping (ORM) Trong lớp ORM, Django xác định các truy vấn SQL được tách biệt khỏi các tham số của truy vấn và trình điều khiển cơ sở dữ liệu chịu trách nhiệm lọc từng tham số. 
+Nhưng khi chúng ta vào 1 bài toán nào đó mà phải dùng các câu lệnh sql trực tiếp sẽ dễ biểu diễn hơn ORM thì lúc đấy django sẽ không chịu trách nhiệm lọc đầu vào mà sẽ đẩy lại cho chúng ta
+
+
+Tiếp theo là chống clickjacking
+Kiểu tấn công này xảy ra khi một trang web độc hại lừa người dùng nhấp vào một phần tử ẩn của một trang web khác mà họ đã tải trong một khung hoặc khung nội tuyến ẩn.
+Một ví dụ về clickjacking ¶
+Giả sử một cửa hàng trực tuyến có trang nơi người dùng đã đăng nhập có thể nhấp vào “Mua ngay” để mua một mặt hàng. Một người dùng đã chọn luôn đăng nhập vào cửa hàng để thuận tiện. Trang web của kẻ tấn công có thể tạo nút “Tôi thích Ngựa con” trên một trong các trang của riêng chúng và tải trang của cửa hàng trong iframe trong suốt sao cho nút “Mua ngay” được phủ lên trên nút “Tôi thích Ngựa con”. Nếu người dùng truy cập trang web của kẻ tấn công, việc nhấp vào “Tôi thích Ngựa con” sẽ vô tình nhấp vào nút “Mua ngay” và vô tình mua mặt hàng đó.
+Ở đây em có 1 ud web chạy với python django chạy trên cổng 8000 và trang test.html này chạy với cổng 5000 đang tải trang web của django và sử dụng trong iframe mặc định trong django #X_FRAME_OPTIONS = 'SAMEORIGIN' tức là sẽ cho những trang mà có cùng domain mới sử dụng đc đây 2 ứng dụng web của hacker đang sử dụng port 5000 nên sẽ khác domain và ko thể tải trang về đc
+Khi chúng ta muốn cho những ứng dụng khác domain khác tải đc trang mình về sử dụng trong iframe mình sẽ sử dụng X_FRAME_OPTIONS = 'ALLOW-FROM=url' giờ đấy ứng dụng khác có thể tải bất kì đường dẫn nào của web mình về sử dụng Như thế này sẽ rất nguy hiểm vì ko phải đường dẫn nào mình cũng có thể cho họ sử dụng được ví dụ như những đường dẫn trang web nhập những thông tin nhạy cảm của người dùng như này thì ta sẽ cấu hình cho phép những đường dẫn nào được sử dụng
+
+
+Tiếp theo em sẽ nói về jwt token trong django
+Các ud web hiện nay đang phổ biến việc tách ra 2 bên riêng biệt Client – Server, để 2 bên giao tiếp với nhau đảm bảo xác thực thì nên dùng json web token
+Hiểu cơ bản JWT là một phương tiện đại diện cho các yêu cầu chuyển giao giữa hai bên Client – Server , các thông tin trong chuỗi JWT được định dạng bằng JSON .để sử dụng thì ta sẽ phải cài đặt thêm 2 gói djangorestframework và djangorestframework-simplejwt
+...
+
+Tiếp theo em sẽ nói về cấu hình cors trong django
+CORS là gì?
+CORS là một cơ chế cho phép nhiều tài nguyên khác nhau (fonts, Javascript, v.v…) của một trang web có thể được truy vấn từ domain khác với domain của trang đó. CORS là viết tắt của từ Cross-origin resource sharing.
+CORS được sinh ra là vì same-origin policy, là một chính sách liên quan đến bảo mật được cài đặt vào toàn bộ các trình duyệt hiện nay. Chính sách này ngăn chặn việc truy cập tài nguyên của các domain khác một cách vô tội vạ.
+Ta có ví dụ một kịch bản như sau:
+Bạn truy cập một trang web có mã độc. Trang web đó sử dụng Javascript để truy cập tin nhắn Facebook của bạn ở địa chỉ https://facebook.com/messages.
+Nếu bạn đã đăng nhập Facebook từ trước rồi. Nếu không có same-origin policy, trang web độc hại kia có thể thoải mái lấy dữ liệu của bạn và bất cứ điều gì chúng muốn. Để cấu hình cors trong django thì ta phải cài thêm 1 package django-cors-headers
+Setting... Bây giờ e Có 1 api này sẽ trả về 1 dach sách dữ liệu api này công khai nên ai cx có thể gọi đến và lấy dữ liệu như thế sẽ sẽ gánh chịu rất nặng vì có nhiều api gọi đến bây giờ e sẽ cấu hình để cho phép 1 số domain đc sử dụng api này thôi
+
