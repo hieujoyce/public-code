@@ -1,0 +1,47 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static int[] arr;
+    public static int N, K;
+    public static boolean stop = false;
+    public static void in() {
+        for(int i = 0; i < K; i++) {
+		    System.out.printf("%d  ", arr[i]);
+		}
+		System.out.println("");
+    }
+    
+    public static void init() {
+        for(int i = 0; i < K; i++) {
+		    arr[i] = i + 1;
+		}
+    }
+    
+    public static void sinh() {
+        int i = K - 1;
+        while(i >= 0 && arr[i] == N - K + i + 1) {
+            i--;
+        }
+        if(i == -1) stop = true;
+        else {
+            arr[i]++;
+            for(int j = i + 1; j < K; j++) {
+    		    arr[j] = arr[j - 1] + 1;
+    		}
+        }
+    }
+    
+    public static void main (String[] args) throws java.lang.Exception {
+		Scanner s = new Scanner(System.in);
+		N = s.nextInt();
+		K = s.nextInt();
+		arr = new int[K];
+		init();
+		while(!stop) {
+		    in();
+		    sinh();
+		}
+	}
+}

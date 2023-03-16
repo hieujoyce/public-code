@@ -1,0 +1,49 @@
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+void dfs(int visited[], int index, int ** arr, int n) {
+    visited[index] = 1;
+    for(int i = 0; i < n; i++) {
+        if(arr[index][i] == 1 && index != i && visited[i] == 0) {
+            dfs(visited, i, arr, n);
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    for(int k = 0; k < t; k++) {
+        int n;
+        cin >> n;
+        int **arr = new int*[n];
+        for(int i = 0; i < n; i++) {
+            arr[i] = new int[n];
+            for(int j = 0; j < n; j++) {
+                cin >> arr[i][j];
+            }
+        }
+        int count = 0, visited[n];
+        for(int j = 0; j < n; j++) {
+                visited[j] = 0;
+            }
+        for(int i = 0; i < n; i++) {
+            if(visited[i] == 0) {
+                count++;
+                dfs(visited, i, arr, n);
+            }
+        }
+        
+        if(count == 1) {
+            cout << "Connected";
+        } else {
+            cout << "Not connected";
+        }
+        
+        cout << endl;
+    }
+
+    return 0;
+}

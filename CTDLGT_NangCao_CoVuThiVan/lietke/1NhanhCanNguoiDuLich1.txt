@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int n, **dArr, *arr, cmin = 10000, f = 10000, g = 0;
+
+int UCV(int j, int k) {
+    for (int i = 0; i < k; i++)
+        if (j == arr[i]) return 0;
+    return 1;
+}
+
+// void in(int k) {
+//     cout << endl;
+//     for(int i = 0; i <= k; i++) {
+// 	    cout << "  " << arr[i];
+// 	}
+// }
+
+void deQuy(int i, int o){
+    for (int j = 0; j < n; j++){
+        if(UCV(j, i) == 1) {
+            arr[i] = j;
+            int o1 = o;
+            if(i != 0) {
+                o1 += dArr[arr[i - 1]][j];
+                g = o1 + (n - i) * cmin;
+                if(g > f) {
+                    continue;   
+                }
+            }
+            if(i == n - 1) {
+                int f1 = o1 + dArr[j][arr[0]];
+                if(f1 < f)
+                    f = f1;
+            } else {
+                deQuy(i + 1, o1);
+            }
+        }
+    }
+}
+
+int main() {
+    cin >> n;
+    arr = new int[n];
+    dArr = new int*[n];
+    for(int i = 0; i < n; i++) {
+        dArr[i] = new int[n];
+        for(int j = 0; j < n; j++) {
+            cin >> dArr[i][j];
+            if(i != j && dArr[i][j] < cmin)
+                cmin = dArr[i][j];
+        }
+    }
+    deQuy(0, 0);
+    cout << f;
+
+    return 0;
+}

@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static int tinhTong(int n) {
+	if(n == 0) return arr[n] % 2 == 0 ? arr[n] : 0;
+	return arr[n] % 2 == 0 ? arr[n] + tinhTong(n - 1) : 0 + tinhTong(n - 1);
+    }
+    
+    public static int[] arr;
+	
+	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		arr = new int[N];
+		for(int i = 0; i < N; i++) {
+		    arr[i] = s.nextInt();
+		}
+		System.out.println(tinhTong(N - 1));
+	}
+}

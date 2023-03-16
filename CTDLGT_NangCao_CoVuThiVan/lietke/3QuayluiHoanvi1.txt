@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int n, arr[100];
+
+int UCV(int j, int k) {
+    for (int i=1; i <= k-1; i++)
+        if (j == arr[i]) return 0;
+    return 1;
+}
+
+void in() {
+    for(int i = 0; i < n; i++) {
+	    cout << "  " << n - arr[i + 1] + 1;
+	}
+	cout << endl;
+}
+
+void deQuy(int i){
+    for (int j = 1; j <= n; j++){
+        if(UCV(j, i) == 1) {
+            arr[i] = j;
+            if(i == n) in();
+            else deQuy(i + 1);
+        }
+    }
+}
+
+int main() {
+    cin >> n;
+    deQuy(1);
+    return 0;
+}

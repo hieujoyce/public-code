@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static int check(double[] arr, int n) {
+	if(arr[n] > 0) return 0;
+	if(n == 0) return 1;
+	return check(arr, n - 1);
+    }
+    
+	
+	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		for(int i = 0; i < N; i++) {
+		    int n = s.nextInt();
+		    double[] arr = new double[n];
+		    for(int j = 0; j < n; j++) {
+		        arr[j] = s.nextDouble();
+		    }
+		    System.out.println(check(arr, n - 1) == 1 ? "Yes" : "No");
+		}
+	}
+}

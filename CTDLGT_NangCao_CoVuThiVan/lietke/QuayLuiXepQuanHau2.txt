@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int n = 8, *arr, *c, *c1, *c2, dem = 0, y, x;
+
+void init() {
+    for(int i = 0; i < n; i++) {
+	    c[i + 1] = 1;
+	}
+	for(int i = 0; i < 2 * n; i++) {
+	    c1[i + 1] = c2[i + 1] = 1;
+	}
+	cout << endl;
+}
+
+void in() {
+    for(int i = 0; i < n; i++) {
+	    cout << arr[i + 1] << "  ";
+	}
+	cout << endl;
+}
+
+int check(int i, int j) {
+    if (c[j] == 0 || c1[i - j + n] == 0 || c2[i + j - 1] ==  0)
+        return 0;
+    return 1;
+}
+
+void deQuy(int i) {
+    if(i == y) {
+        if(i == 8) in();
+        else deQuy(i + 1);
+    } else {
+        for (int j = 1; j <= n; j++)
+            if (check(i, j)) {
+                arr[i] = j;
+                c[j] = c1[i - j + n] = c2[i + j - 1] = 0;
+                if (i == n)
+                    in();
+                else
+                    deQuy(i + 1);
+                c[j] = c1[i - j + n] = c2[i + j - 1] = 1;
+            }   
+    }
+}
+
+int main() {
+    cin >> y >> x;
+    arr = new int[n + 1];
+    c = new int[n + 1];
+    c1 = new int[2 * n + 1];
+    c2 = new int[2 * n + 1];
+    init();
+    arr[y] = x;
+    c[x] = c1[y - x + n] = c2[y + x - 1] = 0;
+    deQuy(1);
+    return 0;
+}

@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void strongConnect(int index, int arrIndex[], int lowLink[], vector<int> vec[], vector<int>& result, int &cnt) {
+    arrIndex[index] = cnt;
+    lowLink[index] = cnt;
+    cnt++;
+    result.push_back(index);
+    //cout << index << " ";
+    for(int i = 0; i < vec[index].size(); i++) {
+        if(arrIndex[vec[index][i]] == -1) {
+            strongConnect(vec[index][i], arrIndex, lowLink, vec, result, cnt);
+            lowLink[index] = min(lowLink[index], lowLink[vec[index][i]]);
+        } else {
+            lowLink[index] = min(lowLink[index], arrIndex[vec[index][i]]);
+        }
+    }
+    if(lowLink[index] == arrIndex[index]) {
+        int tmp1, first = 1;
+        //cout << endl << "HJ ";
+        do {
+            tmp1 = result[result.size() - 1];
+            if(first == 1) {
+                first = 0;
+            } else {
+                cout << " ";
+            }
+            cout << tmp1;
+            result.pop_back();
+            arrIndex[tmp1] = lowLink[tmp1] = INT_MAX;
+        } while(tmp1 != index);
+        
+        cout << endl;
+    }
+}
+
+int main() {
+    int t, tmp;
+    cin >> t;
+    //cout << "HieuJOyce " << endl;
+    for(int k = 0; k < t; k++) {
+        int n, cnt = 0;
+        cin >> n;
+        vector<int> vec[n];
+        vector<int> result;
+        for(int i = 0; i < n; i++) {
+            int m;
+            cin >> m;
+            for(int j = 0; j < m; j++) {
+                cin >> tmp;
+                tmp--;
+                vec[i].push_back(tmp);   
+            }
+        }
+        int arrIndex[n], lowLink[n];
+        for(int i = 0; i < n; i++) {
+            arrIndex[i] = -1;
+            lowLink[i] = 0;
+        }
+        for(int i = 0; i < n; i++) {
+            if(arrIndex[i] == -1) {
+                strongConnect(i, arrIndex, lowLink, vec, result, cnt);
+            }
+        }
+        //cout << "Stack: ";
+        // result.pop_back();
+        // for(int i = 0; i < result.size(); i++) {
+        //     cout << " " << result[i] << ":" << arrIndex[result[i]] << ":" << lowLink[result[i]];
+        // }
+        
+        //cout << " " << result.pop_back();
+        cout << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int n, k, arr[100];
+
+void in() {
+    for(int i = 0; i < k; i++) {
+	    cout << arr[i + 1] << "  ";
+	}
+	cout << endl;
+}
+
+void deQuy(int i){
+    for (int j = arr[i - 1] + 1; j <= n - k + i; j++){
+        arr[i] = j;
+        if(i == k) in();
+        else deQuy(i + 1);
+    }
+}
+
+int main() {
+    cin >> n >> k;
+    arr[0] = 0;
+    deQuy(1);
+    return 0;
+}

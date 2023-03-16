@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int  n, m, y, x, **arr, dx[4] = {0, 0, -1, 1}, dy[4] = {-1, 1, 0, 0};
+
+int checkXY(int cx, int cy) {
+    if(cx < 0 || cx > m - 1 || cy < 0 || cy > n - 1) {
+        return 0;
+    }
+    return 1;
+}
+
+int deQuy(int ox, int oy, int c){
+    int count = c;
+    for(int i = 0; i < 4; i++) {
+        int cx = dx[i] + ox;
+        int cy = dy[i] + oy;
+        if(checkXY(cx, cy) && arr[cy][cx] == 0) {
+            arr[cy][cx] = -1;
+            count += deQuy(cx, cy, 1);
+        }
+    }
+    return count;
+}
+
+int main() {
+    cin >> n >> m >> y >> x;
+    arr = new int*[n];
+    for(int i = 0; i < n; i++)
+        arr[i] = new int[m];
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    arr[y - 1][x - 1] = -1;
+    cout << deQuy(x - 1, y - 1, 1);
+
+    return 0;
+}

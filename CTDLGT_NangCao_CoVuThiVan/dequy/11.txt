@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static int handleX(int n) {
+        if(n == 0) return 1;
+	return handleX(n - 1) + handleY(n - 1);
+    }
+    
+    public static int handleY(int n) {
+	    if(n == 0) return 0;
+	    return  3 * handleX(n - 1) + handleY(n - 1);
+    }
+	
+	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		for(int i = 0; i < N; i++) {
+		    int n = s.nextInt();
+		    System.out.printf("%d %d",  handleX(n), handleY(n) );
+		    System.out.println();
+		}
+	}
+}

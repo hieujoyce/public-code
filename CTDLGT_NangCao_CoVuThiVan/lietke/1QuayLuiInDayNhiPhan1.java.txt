@@ -1,0 +1,34 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static int[] arr;
+    public static int N;
+	public static void in() {
+        for(int i = 0; i < N; i++) {
+		    System.out.printf("%d", arr[i]);
+		}
+		System.out.println("");
+    }
+    public static void deQuy(int i){
+        for (int j = 0; j <= 1; j++){
+            arr[i] = j;
+            if (i == N - 1)
+                in();
+            else
+                deQuy(i + 1);
+            
+        }
+    }
+	
+	public static void main (String[] args) throws java.lang.Exception {
+		Scanner s = new Scanner(System.in);
+		N = s.nextInt();
+		arr = new int[N];
+		arr[0] = 1;
+		arr[1] = 2;
+		arr[2] = 3;
+		deQuy(0);
+	}
+}

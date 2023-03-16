@@ -1,0 +1,51 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+    
+    public static void bubbleSort(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j] < arr[j + 1]) {
+                    // swap arr[j+1] và arr[i]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+        }
+    }
+
+	public static int binarySearch(int arr[], int l, int r, int x) {
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == x)
+                return mid;
+            if (arr[mid] < x)
+                return binarySearch(arr, l, mid - 1, x);
+            return binarySearch(arr, mid + 1, r, x);
+        }
+        return -1;
+    }
+	
+	public static void main (String[] args) throws java.lang.Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		int[] arr = new int[N];
+		for(int i = 0; i < N; i++) {
+		    arr[i] = s.nextInt();
+		}
+		bubbleSort(arr);
+		printArray(arr);
+		int M = s.nextInt();
+		for(int i = 0; i < M; i++) {
+		    System.out.println(binarySearch(arr, 0, N - 1, s.nextInt()));
+		}
+	}
+}

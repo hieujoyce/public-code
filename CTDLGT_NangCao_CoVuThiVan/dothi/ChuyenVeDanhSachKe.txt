@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    for(int k = 0; k < t; k++) {
+        int n;
+        cin >> n;
+        int arr[n][n];
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                cin >> arr[i][j];
+            }
+        }
+        for(int i = 0; i < n; i++) {
+            printf("Vertex%4d:", i);
+            int first = 1;
+            for(int j = 0; j < n; j++) {
+                if(arr[i][j] == 1) {
+                    if(first == 1) {
+                        first = 0;
+                    } else {
+                        printf(",");
+                    }
+                    printf("%3d", j);
+                }
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int n, arr[100];
+
+void in() {
+    for(int i = 0; i < n; i++) {
+	    cout << arr[i];
+	}
+	cout << endl;
+}
+
+void deQuy(int i){
+    for (int j = 0; j <= 1; j++){
+        arr[i] = 1 - j;
+        if (i == n - 1)
+            in();
+        else
+            deQuy(i + 1);
+        
+    }
+}
+
+int main() {
+    cin >> n;
+    deQuy(0);
+    return 0;
+}

@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static int dem(int n) {
+	if(n == 0) return arr[n] > 0 ? 1 : 0;
+	return arr[n] > 0 ? 1 + dem(n - 1) : 0 + dem(n - 1);
+    }
+    
+    public static double[] arr;
+	
+	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		arr = new double[N];
+		for(int i = 0; i < N; i++) {
+		    arr[i] = s.nextDouble();
+		}
+		System.out.println(dem(N - 1));
+	}
+}

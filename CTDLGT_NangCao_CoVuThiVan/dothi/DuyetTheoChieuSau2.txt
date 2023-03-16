@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+void dfs(int visited[], int index, int ** arr, int n, int parents[]) {
+    visited[index] = 1;
+    for(int i = 0; i < n; i++) {
+        if(arr[index][i] == 1 && index != i && visited[i] == 0) {
+            parents[i] = index;
+            dfs(visited, i, arr, n, parents);
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    for(int k = 0; k < t; k++) {
+        int n, u, v, check = 0;
+        cin >> n >> u >> v;
+        int **arr = new int*[n];
+        for(int i = 0; i < n; i++) {
+            arr[i] = new int[n];
+            for(int j = 0; j < n; j++) {
+                cin >> arr[i][j];
+            }
+        }
+        int visited[n], parents[n], first = 1;
+        for(int j = 0; j < n; j++) {
+            visited[j] = 0, parents[j] = -1;
+        }
+        dfs(visited, u, arr, n, parents);
+        
+        printf("Path from %d to %d:", u, v);
+        if(visited[v] == 0) {
+            printf(" No path exits");
+        } else {
+            vector<int> path;
+            int tmp = v;
+            while(u != tmp) {
+                path.push_back(tmp);
+                tmp = parents[tmp];
+            }
+            path.push_back(u);
+            for (int i = path.size() - 1; i >= 0; i--) {
+                if(first == 1) {
+                    first = 0;
+                } else {
+                    printf(" -->"); 
+                }
+                printf(" %d", path[i]);
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

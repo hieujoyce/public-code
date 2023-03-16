@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+    public static void tinhHam2(double n) {
+	if(n == 0) return;
+	sum = Math.sqrt(n + sum);
+	tinhHam2(n - 1);
+    }
+    public static double sum;
+	public static void main(String[] args) throws Exception {
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		for(int i = 0; i < N; i++) {
+		    sum = 0;
+		    tinhHam2(s.nextInt());
+			System.out.printf("%.10f", sum);
+			System.out.println();
+		}
+	}
+}

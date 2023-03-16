@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static long tinhGiaithua(int n) {
+        if (n > 0) {
+            return n * tinhGiaithua(n - 1);
+        } else {
+            return 1;
+        }
+    }
+	
+	public static void main (String[] args) throws java.lang.Exception {
+		//System.setIn(new FileInputStream("src/AddingReversedNumbers/input.txt"));
+		Scanner s = new Scanner(System.in);
+		int N = s.nextInt();
+		for(int i = 0; i <= N; i++) {
+			//s.nextLine();
+			System.out.println(i + "! = " + tinhGiaithua(i));
+		}
+	}
+}

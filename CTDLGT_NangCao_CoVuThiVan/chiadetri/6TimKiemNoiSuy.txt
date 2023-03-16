@@ -1,0 +1,95 @@
+#include <iostream>
+
+using namespace std;
+
+void in(int arr[], int l, int r) {
+    for(int i = l; i <= r; i++) {
+	    cout << arr[i] << " ";
+	}
+}
+
+int partition(int arr[], int start, int end) {
+ 
+    int pivot = arr[start];
+ 
+    int count = 0;
+    for (int i = start + 1; i <= end; i++) {
+        if (arr[i] <= pivot)
+            count++;
+    }
+
+    int pivotIndex = start + count;
+    swap(arr[pivotIndex], arr[start]);
+
+    int i = start, j = end;
+ 
+    while (i < pivotIndex && j > pivotIndex) {
+ 
+        while (arr[i] <= pivot) {
+            i++;
+        }
+ 
+        while (arr[j] > pivot) {
+            j--;
+        }
+ 
+        if (i < pivotIndex && j > pivotIndex) {
+            swap(arr[i++], arr[j--]);
+        }
+    }
+ 
+    return pivotIndex;
+}
+ 
+void quickSort(int arr[], int start, int end) {
+    if (start >= end)
+        return;
+
+    int p = partition(arr, start, end);
+
+    quickSort(arr, start, p - 1);
+
+    quickSort(arr, p + 1, end);
+}
+
+int InterPolationSearch(int arr[], int n, int x) {
+    int left = 0;
+    int right = n-1;
+    while (left <= right && x >= arr[left] && x <= arr[right]) {
+        double val1 = (double) (x - arr[left]) / (arr[right]-arr[left]);
+        int val2 = (right-left);
+        int Search = left + val1*val2;
+  
+        if (arr[Search] == x)
+            return Search;
+  
+        if (arr[Search] < x)
+            left = Search + 1;
+        else
+            right = Search - 1;
+    }
+    return -1;
+}
+
+int main()
+{
+    int n, *arr, *el, m;
+    cin >> n;
+    arr = new int[n];
+    for(int i = 0; i < n; i++) {
+	    cin >> arr[i];
+	}
+	cin >> m;
+	el = new int[m];
+	for(int i = 0; i < m; i++) {
+	    cin >> el[i];
+	}
+	quickSort(arr, 0, n - 1);
+	in(arr, 0, n - 1);
+	cout << endl;
+    for(int i = 0; i < m; i++) {
+        int vt = InterPolationSearch(arr, n, el[i]);
+	    cout << vt <<endl;
+	}
+    return 0;
+}

@@ -1,0 +1,14 @@
+import math
+def tinhTong(x, n):
+    if (n == 1):
+        return x
+    fact = 1
+    for i in range(n):
+        fact = fact * (i + 1)
+    return (math.pow(x, n) / fact) + tinhTong(x, n - 1)
+
+m = int(input())
+
+for i in range(m):
+    x, n = input().split()
+    print("%.8f" % tinhTong(float(x), int(n)))
