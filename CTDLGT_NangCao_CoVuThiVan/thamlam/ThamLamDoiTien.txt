@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, len = 6, count = 0;
+    int a[len] = {1, 5, 10, 50, 100, 500};
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i ++) {
+        cin >> arr[i];
+    }
+    for(int i = 0; i < n; i ++) {
+        int m = 1000 - arr[i];
+        for(int j = len - 1; j >= 0; j--) {
+            count += m / a[j];
+            m %= a[j];
+        }
+        cout << count << endl;
+        count = 0;
+    }
+    return 0;
+}

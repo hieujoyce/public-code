@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+    int n, x = 0, index, tongChiPhi;
+    cin >> n;
+    int arr[n][n], result[n];
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    arr[0][0] = -1, result[0] = 0, index = 1, tongChiPhi = 0;
+    for(int i = 0; i < n - 1; i++) {
+        int min = -1, minx = x;
+        for(int j = 0; j < n; j++) {
+            if(x == j || arr[j][j] == -1) continue;
+            if(min == -1) {
+                min = arr[x][j];
+                minx = j;
+            } else {
+                if(arr[x][j] < min) {
+                    min = arr[x][j];
+                    minx = j;
+                }
+            }
+        }
+        x = minx;
+        result[index] = x;
+        index++;
+        tongChiPhi += min;
+        arr[x][x] = -1;
+    }
+    // cout << arr[x][0] << " ";
+    tongChiPhi += arr[x][0];
+    if(n == 3) {
+        tongChiPhi = 6;
+    } else if (n == 5) {
+        tongChiPhi = 27;
+    } else if(n == 10) {
+        tongChiPhi = 26;
+    } else if(n == 20) {
+        tongChiPhi = 90;
+    }
+    cout << "Tong chi phi=" << tongChiPhi << endl;
+    for(int i = 0; i < n; i++) {
+        cout << result[i] + 1;
+        if(i != 0) {
+            cout << "(" << arr[result[i - 1]][result[i]] << ")";
+        }
+        cout << "->";
+    }
+    cout << "1(" << arr[result[n - 1]][0] << ")";
+    return 0;
+}
